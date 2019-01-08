@@ -44,7 +44,7 @@ resource "aws_cloudwatch_event_rule" "cron" {
 resource "aws_cloudwatch_event_target" "cron" {
   rule      = "${aws_cloudwatch_event_rule.cron.name}"
   target_id = "invoke_hookshot"
-  arn       = "${aws_lambda_function.lambda.arn}"
+  arn       = "${module.lambda.arn}"
 }
 
 module "publish-user" {
