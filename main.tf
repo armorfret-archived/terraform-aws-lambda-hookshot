@@ -31,8 +31,8 @@ module "lambda" {
   access-policy-document = "${data.aws_iam_policy_document.lambda_perms.json}"
   trust-policy-document  = "${data.aws_iam_policy_document.lambda_assume.json}"
 
-  source-type = ["events"]
-  source-arn  = ["${aws_cloudwatch_event_rule.cron.arn}"]
+  source-types = ["events"]
+  source-arns  = ["${aws_cloudwatch_event_rule.cron.arn}"]
 }
 
 resource "aws_cloudwatch_event_rule" "cron" {
