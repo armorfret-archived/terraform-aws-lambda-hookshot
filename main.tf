@@ -31,7 +31,7 @@ resource "aws_cloudwatch_event_target" "cron" {
 }
 
 module "publish-user" {
-  source         = "armorfret/terraform-aws-s3-publish"
+  source         = "armorfret/s3-publish/aws"
   version        = "0.0.1"
   logging-bucket = "${var.logging-bucket}"
   publish-bucket = "${var.data-bucket}"
