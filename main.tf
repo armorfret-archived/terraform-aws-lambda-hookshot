@@ -1,5 +1,6 @@
 module "lambda" {
-  source = "github.com/akerl/terraform-aws-lambda"
+  source  = "armorfret/lambda/aws"
+  version = "0.0.1"
 
   lambda-bucket  = "${var.lambda-bucket}"
   lambda-version = "${var.version}"
@@ -30,7 +31,8 @@ resource "aws_cloudwatch_event_target" "cron" {
 }
 
 module "publish-user" {
-  source         = "github.com/akerl/terraform-aws-s3-publish"
+  source         = "armorfret/terraform-aws-s3-publish"
+  version        = "0.0.1"
   logging-bucket = "${var.logging-bucket}"
   publish-bucket = "${var.data-bucket}"
 }
