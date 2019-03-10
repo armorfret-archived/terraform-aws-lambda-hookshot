@@ -1,21 +1,26 @@
 variable "version" {
-  type    = "string"
-  default = "v0.3.0"
+  description = "Version of the Lambda to use"
+  type        = "string"
+  default     = "v0.3.0"
 }
 
-variable "logging-bucket" {
-  type = "string"
+variable "logging_bucket" {
+  description = "S3 bucket to use for bucket logging"
+  type        = "string"
 }
 
-variable "data-bucket" {
-  type = "string"
+variable "config_bucket" {
+  description = "S3 bucket to use for configuration files"
+  type        = "string"
 }
 
-variable "lambda-bucket" {
-  type = "string"
+variable "lambda_bucket" {
+  description = "S3 bucket from which to read Lambda ZIP"
+  type        = "string"
 }
 
 variable "rate" {
-  type    = "string"
-  default = "1 hour"
+  description = "Frequency at which to run the Lambda"
+  type        = "string"
+  default     = "1 hour"
 }
