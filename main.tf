@@ -2,19 +2,19 @@ module "lambda" {
   source  = "armorfret/lambda/aws"
   version = "0.0.2"
 
-  lambda-bucket  = "${var.lambda_bucket}"
-  lambda-version = "${var.version}"
-  function-name  = "hookshot_${var.config_bucket}"
+  source_bucket  = "${var.lambda_bucket}"
+  source_version = "${var.version}"
+  function_name  = "hookshot_${var.config_bucket}"
 
-  environment-variables = {
+  environment_variables = {
     S3_BUCKET = "${var.config_bucket}"
     S3_KEY    = "config/urls"
   }
 
-  access-policy-document = "${data.aws_iam_policy_document.lambda_perms.json}"
+  access_policy_document = "${data.aws_iam_policy_document.lambda_perms.json}"
 
-  source-types = ["events"]
-  source-arns  = ["${aws_cloudwatch_event_rule.cron.arn}"]
+  source_types = ["events"]
+  source_arns  = ["${aws_cloudwatch_event_rule.cron.arn}"]
 }
 
 resource "aws_cloudwatch_event_rule" "cron" {
