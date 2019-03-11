@@ -8,7 +8,7 @@ module "lambda" {
 
   environment_variables = {
     S3_BUCKET = "${var.config_bucket}"
-    S3_KEY    = "config/urls"
+    S3_KEY    = "config.yaml"
   }
 
   access_policy_document = "${data.aws_iam_policy_document.lambda_perms.json}"
