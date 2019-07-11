@@ -3,7 +3,7 @@ module "lambda" {
   version = "0.0.2"
 
   source_bucket  = "${var.lambda_bucket}"
-  source_version = "${var.version}"
+  source_version = "${var.lambda_version}"
   function_name  = "hookshot_${var.config_bucket}"
 
   environment_variables = {
