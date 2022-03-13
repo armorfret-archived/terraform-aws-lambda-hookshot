@@ -40,7 +40,7 @@ resource "aws_cloudwatch_event_target" "cron" {
 
 module "publish-user" {
   source         = "armorfret/s3-publish/aws"
-  version        = "0.2.1"
+  version        = "0.2.2"
   logging_bucket = var.logging_bucket
   publish_bucket = var.config_bucket
 }
